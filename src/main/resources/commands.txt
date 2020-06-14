@@ -1,0 +1,53 @@
+// Create Keyspace
+CREATE KEYSPACE ak_test WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
+
+
+CREATE TABLE emp(emp_id int, emp_name text, emp_city text, salary decimal, emp_phone bigint, PRIMARY KEY (emp_id));
+
+Insert into emp (emp_id, emp_name, emp_city, salary, emp_phone) values (1, 'Arpit', 'Bangalore', 20000, 9876543210);
+
+
+
+// SPARK cmds
+sc.parallelize( 1 to 50 ).sum();
+
+
+// Connector cmds
+
+spark-shell –jars C:/Users/deeksha.kulshreshtha/.ivy2/jars/datastax_spark-cassandra-connector-2.4.0-s_2.11.jar
+
+sc.stop
+
+import com.datastax.spark.connector._, org.apache.spark.SparkContext, org.apache.spark.SparkContext._, org.apache.spark.SparkConf
+
+
+val conf = new SparkConf(true).set("spark.cassandra.connection.host", "localhost")
+
+val sc = new SparkContext(conf)
+
+
+
+val test_spark_rdd = sc.cassandraTable("ak_test", "emp");
+
+val test_spark_rdd = sc.cassandraTable(“test_spark”, “test”)
+test_spark_rdd.first
+
+//Deply ->
+
+
+spark-submit --class sample.configs.UserTransformer --master spark://localhost:7077 D:\workspace\AK\ak-workspace\ak-spark\target\ak-spark-1.0-SNAPSHOT.jar
+
+
+c
+// Links
+
+https://www.datastax.com/blog/2015/01/kindling-introduction-spark-cassandra-part-1
+
+https://opencredo.com/blogs/data-analytics-using-cassandra-and-spark
+
+
+// Tutorials
+
+https://supergloo.com/spark-scala/apache-spark-cassandra/
+
+http://rustyrazorblade.com/post/2015/2015-01-02-intro-to-spark-and-cassandra/

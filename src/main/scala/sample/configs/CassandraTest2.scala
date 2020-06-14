@@ -1,4 +1,4 @@
-package sample
+package sample.configs
 
 import com.datastax.spark.connector._
 import org.apache.spark.SparkConf
@@ -14,7 +14,5 @@ object CassandraTest2 {
     val emp_rdd = sc.cassandraTable("ak_test", "emp")
     print("EMP table row -> " + emp_rdd.first)
 
-
   }
-
 }
