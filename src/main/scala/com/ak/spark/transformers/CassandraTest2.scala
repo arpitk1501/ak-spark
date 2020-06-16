@@ -1,4 +1,4 @@
-package sample.configs
+package com.ak.spark.transformers
 
 import com.datastax.spark.connector._
 import org.apache.spark.SparkConf

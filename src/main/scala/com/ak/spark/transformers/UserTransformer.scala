@@ -1,9 +1,9 @@
-package sample.configs
+package com.ak.spark.transformers
 
+import com.ak.spark.cases.FoodToUserCase
 import com.datastax.spark.connector._
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
-import sample.cases.FoodToUserCase
 
 object UserTransformer {
 

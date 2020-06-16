@@ -43,3 +43,23 @@ create table cc_engine.position
     PRIMARY KEY ( account_id, asset_id )
 ) with clustering order by (asset_id asc);
 
+
+create table cc_engine.position_calc
+(
+    asset_id      text,
+    account_name  text,
+    account_type  text,
+    account_id    text,
+    le_id         text,
+    le_name       text,
+    le_type       text,
+    asset_name    text,
+    country_code  text,
+    currency_code text,
+    market_code   text,
+    price         decimal,
+    quantity      decimal,
+    market_value  decimal,
+    PRIMARY KEY ( le_id, account_id, asset_id )
+) with clustering order by (account_id asc, asset_id asc) ;
+

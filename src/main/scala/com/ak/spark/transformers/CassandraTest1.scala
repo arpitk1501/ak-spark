@@ -1,4 +1,4 @@
-package sample.configs
+package com.ak.spark.transformers
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
