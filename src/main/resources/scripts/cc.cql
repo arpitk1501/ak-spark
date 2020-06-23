@@ -23,6 +23,16 @@ create table cc_engine.account
     PRIMARY KEY ( le_id, account_id )
 );
 
+create table cc_engine.le_account
+(
+    le_id        text,
+    le_name      text,
+    le_type      text, //CP/CR
+    account_id   text,
+    account_name text,
+    account_type text,
+    PRIMARY KEY (account_id)
+);
 
 create table cc_engine.asset_composite
 (
@@ -43,6 +53,10 @@ create table cc_engine.position
     PRIMARY KEY ( account_id, asset_id )
 ) with clustering order by (asset_id asc);
 
+create table cc_engine.position_asset
+(
+
+)
 
 create table cc_engine.position_calc
 (
@@ -61,5 +75,5 @@ create table cc_engine.position_calc
     quantity      decimal,
     market_value  decimal,
     PRIMARY KEY ( le_id, account_id, asset_id )
-) with clustering order by (account_id asc, asset_id asc) ;
+) with clustering order by (account_id asc, asset_id asc);
 
